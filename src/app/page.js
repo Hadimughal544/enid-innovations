@@ -1,20 +1,32 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { HardHat, Clock, Wrench } from "lucide-react";
+import { Clock, Wrench } from "lucide-react";
+import { FaGear } from "react-icons/fa6";
 
 export default function UnderConstruction() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white px-6">
-      {/* Animated Icon */}
-      <motion.div
-        initial={{ y: -10 }}
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-        className="mb-6"
-      >
-        <HardHat className="w-20 h-20 text-[#00A86B]" />
-      </motion.div>
+      {/* Animated Gears (centered and aligned) */}
+      <div className="relative flex items-center justify-center mb-10 h-24 w-24">
+        {/* Big Gear */}
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+          className="absolute"
+        >
+          <FaGear className="w-16 h-16  text-[#00A86B]" />
+        </motion.div>
+
+        {/* Small Gear (offset and rotating opposite) */}
+        <motion.div
+          animate={{ rotate: -360 }}
+          transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+          className="absolute right-20 top-11"
+        >
+          <FaGear className="w-10 h-10 text-red-500" />
+        </motion.div>
+      </div>
 
       {/* Main Heading */}
       <motion.h1
@@ -48,7 +60,7 @@ export default function UnderConstruction() {
           repeat: Infinity,
           repeatType: "mirror",
         }}
-        className="h-1.5 bg-red-500 rounded-full w-3/4 max-w-md"
+        className="h-1.5 bg-[linear-gradient(to_right,#ef4444,#00A86B)]  rounded-full w-3/4 max-w-md"
       />
 
       {/* Icons Row */}
@@ -58,26 +70,15 @@ export default function UnderConstruction() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
       >
-        <Wrench className="w-6 h-6 text-gray-400 animate-spin-slow" />
+        <Wrench className="w-6 h-6 text-gray-400" />
         <Clock className="w-6 h-6 text-gray-400" />
-        <HardHat className="w-6 h-6 text-gray-400" />
+        <FaGear className="w-6 h-6 text-gray-400" />
       </motion.div>
 
       {/* Footer */}
       <p className="text-sm text-gray-500 mt-10">
         © {new Date().getFullYear()} Enid Innovations. All rights reserved.
       </p>
-
-      {/* Custom slow spin animation */}
-      <style>{`
-        @keyframes spin-slow {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-        .animate-spin-slow {
-          animation: spin-slow 6s linear infinite;
-        }
-      `}</style>
     </div>
   );
 }
