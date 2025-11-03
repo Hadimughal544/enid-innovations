@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+
 @import "tailwindcss";
 
 :root {
@@ -20,7 +22,69 @@
 }
 
 body {
+  font-family: 'Quicksand', sans-serif;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Apply Exo for subtitles or specific elements */
+h1, h2, h3, .subtitle {
+  font-family: 'Popins', sans-serif;
+}
+
+.nav-link2 {
+  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.6);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Change Swiper arrow colors */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #0b6a6b !important; /* your desired color */
+}
+
+/* Change Swiper arrow size and color */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 18px !important; /* default is 44px */
+  color: #0b6a6b !important;  /* optional */
+}
+
+/* Smaller Swiper arrow buttons */
+.swiper-button-next,
+.swiper-button-prev {
+  width: 28px !important;
+  height: 28px !important;
+  color: black !important; /* optional */
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 14px !important; /* reduces arrow icon size */
+}
+
+
+
+.hover-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.hover-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.hover-underline:hover::after {
+  width: 100%;
+}
+

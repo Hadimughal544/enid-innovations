@@ -1,84 +1,81 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Clock, Wrench } from "lucide-react";
-import { FaGear } from "react-icons/fa6";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 
-export default function UnderConstruction() {
+export default function Home() {
+  const router = useRouter();
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white px-6">
-      {/* Animated Gears (centered and aligned) */}
-      <div className="relative flex items-center justify-center mb-10 h-24 w-24">
-        {/* Big Gear */}
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-          className="absolute"
-        >
-          <FaGear className="w-16 h-16  text-[#00A86B]" />
-        </motion.div>
+    <div className="relative h-screen w-full flex flex-col md:flex-row overflow-hidden bg-center bg-no-repeat bg-cover bg-fixed bg-[/assets/spider-web]">
+      {/* Overlay to darken or adjust visibility if needed */}
+      <div className="absolute inset-0 bg-white/10 z-0"></div>
 
-        {/* Small Gear (offset and rotating opposite) */}
-        <motion.div
-          animate={{ rotate: -360 }}
-          transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-          className="absolute right-20 top-11"
-        >
-          <FaGear className="w-10 h-10 text-red-500" />
-        </motion.div>
+      {/* Diagonal Crack Divider */}
+      <div className="absolute inset-0 pointer-events-none z-10">
+        <div className="absolute inset-0 bg-transparent">
+          <div className="absolute inset-0 w-full h-full diagonal-crack"></div>
+        </div>
       </div>
 
-      {/* Main Heading */}
-      <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-4xl md:text-5xl font-bold mb-4 text-center"
+      {/* Left Side – Enid Studio */}
+      <div
+        onClick={() => router.push("/innovations")}
+        className="z-20 group flex-1 flex items-center justify-center bg-gradient-to-br from-[#00A86B] via-[#FF4B2B] to-[#00995E] cursor-pointer relative transition-all duration-700 transform hover:scale-[1.03]"
       >
-        Enid Innovations
-      </motion.h1>
+        <div className="absolute inset-0 bg-white/10 group-hover:bg-white/20 transition-all duration-700" />
+        <div className="relative z-10 text-center text-white">
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-3">Enid Innovations</h1>
+          <p className="text-lg md:text-xl font-light opacity-90">
+            Smart BPO & IT Solutions
+          </p>
+        </div>
+      </div>
 
-      {/* Sub Heading */}
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.3 }}
-        className="text-lg md:text-xl text-gray-300 text-center mb-6"
+      {/* Right Side – Enid Innovations */}
+      <div
+        onClick={() => router.push("/studio")}
+        className="z-20 group flex-1 flex items-center justify-center bg-[#3a3a3a] cursor-pointer relative transition-all duration-700 transform hover:scale-[1.03]"
       >
-        Our website is currently under construction.
-        <br />
-        We’re working hard to bring something amazing soon.
-      </motion.p>
+        <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all duration-700" />
+        <div className="relative z-10 text-center text-white">
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-3">Enid Studio</h1>
+          <p className="text-lg md:text-xl font-light opacity-90">
+            Creative & Visual Production
+          </p>
+        </div>
+      </div>
 
-      {/* Progress Bar Animation */}
-      <motion.div
-        initial={{ width: "0%" }}
-        animate={{ width: "80%" }}
-        transition={{
-          duration: 2,
-          ease: "easeInOut",
-          repeat: Infinity,
-          repeatType: "mirror",
-        }}
-        className="h-1.5 bg-[linear-gradient(to_right,#ef4444,#00A86B)]  rounded-full w-3/4 max-w-md"
-      />
+      {/* CSS styles */}
+      <style jsx>{`
+        .diagonal-crack {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            135deg,
+            transparent 48%,
+            #ffffff 49%,
+            #ff0033 50%,
+            #00a86b 51%,
+            transparent 52%
+          );
+          filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+          clip-path: polygon(50% 0%, 52% 10%, 48% 25%, 53% 40%, 47% 60%, 52% 80%, 50% 100%);
+          mix-blend-mode: screen;
+          opacity: 0.9;
+          animation: flicker 4s infinite ease-in-out;
+        }
 
-      {/* Icons Row */}
-      <motion.div
-        className="flex gap-6 mt-8"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-      >
-        <Wrench className="w-6 h-6 text-gray-400" />
-        <Clock className="w-6 h-6 text-gray-400" />
-        <FaGear className="w-6 h-6 text-gray-400" />
-      </motion.div>
-
-      {/* Footer */}
-      <p className="text-sm text-gray-500 mt-10">
-        © {new Date().getFullYear()} Enid Innovations. All rights reserved.
-      </p>
+        @keyframes flicker {
+          0%, 95%, 100% { opacity: 0.9; filter: brightness(1); }
+          96% { opacity: 1; filter: brightness(2); }
+          97% { opacity: 0.7; filter: brightness(1.5); }
+          98% { opacity: 1; filter: brightness(2.2); }
+        }
+      `}</style>
     </div>
   );
 }
