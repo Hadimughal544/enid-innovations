@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import SlideUpSection from "@/app/innovations/Components/Slideup";
+import StudioSlideUpSection from "../../Components/Studioslideup";
 
 export default function StudioProjectsSection() {
   const [projects, setProjects] = useState([]);
@@ -34,9 +34,9 @@ export default function StudioProjectsSection() {
                     </div>
       <div className="max-w-6xl mx-auto py-10">
 
-        <SlideUpSection>
+        <StudioSlideUpSection>
           {projects.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-5">
               {projects.map((project) => (
                 <Link
                   key={project.id}
@@ -62,7 +62,7 @@ export default function StudioProjectsSection() {
           ) : (
             <p className="text-gray-600 text-center">No projects found.</p>
           )}
-        </SlideUpSection>
+        </StudioSlideUpSection>
       </div>
     </section>
   );

@@ -20,7 +20,6 @@ export default function Studio() {
       <Projectsslider/>
       <StudioContact/>
       <Techequipment/>
-      <StudioProjectsSection/>
       
      </div>
     </div>

@@ -70,7 +70,7 @@ export default function Projectsslider() {
                   className="relative group rounded-xl overflow-hidden shadow-lg bg-white hover:shadow-2xl transition-all duration-300 block"
                 >
                   {/* Image */}
-                  <div className="relative w-full h-56 sm:h-64 md:h-72 lg:h-95">
+                  <div className="relative w-full h-76 md:h-95 lg:h-95">
                     <Image
                       src={`http://localhost:4000/uploads/${project.headerImage}`}
                       alt={project.title}

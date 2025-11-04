@@ -2,15 +2,15 @@
 import Image from 'next/image'
 import React from 'react'
 import { motion } from "framer-motion";
-import SliderightSection from '@/app/innovations/Components/Slideright';
-import SlideleftSection from '@/app/innovations/Components/Slideleft';
+import StudioSliderightSection from './Studioslideright';
+import StudioSlideleftSection from './Studioslideleft';
 
 export default function Whychoose() {
   return (
     <section className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         
         {/* left Content */}
-        <SliderightSection>
+       <StudioSliderightSection>
         <div>
         <div className="md:col-span-1">
         <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
@@ -40,13 +40,13 @@ export default function Whychoose() {
         </ul>
       </div>
       </div>
-      </SliderightSection>
+     </StudioSliderightSection>
       {/* right Image */}
-      <SlideleftSection>
+      <StudioSlideleftSection>
       <div    className="md:col-span-1"  >
       <div className="rounded-xl overflow-hidden shadow-lg md:col-span-1 flex justify-center">
         <Image
-          src="/assets/studio/camera2.jpg"
+          src="/assets/studio/whypic2.jpg"
           alt="Telesales Solutions"
           width={600}
           height={200}
@@ -54,7 +54,7 @@ export default function Whychoose() {
         />
       </div>
       </div>
-      </SlideleftSection>
+      </StudioSlideleftSection>
       </section>
   )
 }

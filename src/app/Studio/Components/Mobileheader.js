@@ -38,14 +38,14 @@ export default function MobileHeader() {
       {menuOpen && (
         <div className="bg-white shadow-lg border-t border-gray-100">
           <nav className="flex flex-col px-6 py-4 space-y-3">
-            <button
+             <button
               onClick={() => {
-                router.push("/studio");
+                router.push("/innovations");
                 setMenuOpen(false);
               }}
-              className="text-left text-gray-700 text-lg hover:text-[#C00021] font-medium"
+              className="text-left text-gray-700 text-lg hover:text-[#00A86B] font-medium"
             >
-              Studio
+              Innovations
             </button>
             <button
               onClick={() => {
@@ -74,15 +74,7 @@ export default function MobileHeader() {
             >
               Contact
             </button>
-            <button
-              onClick={() => {
-                router.push("/innovations");
-                setMenuOpen(false);
-              }}
-              className="text-left text-gray-700 text-lg hover:text-[#00A86B] font-medium"
-            >
-              Innovations
-            </button>
+           
           </nav>
         </div>
       )}

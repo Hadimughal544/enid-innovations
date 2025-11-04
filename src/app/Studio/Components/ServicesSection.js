@@ -1,5 +1,4 @@
 "use client";
-import SlideUpSection from "@/app/innovations/Components/Slideup";
 import React from "react";
 import {
   FaCameraRetro,
@@ -11,6 +10,7 @@ import {
   FaPenFancy,
   FaBullhorn,
 } from "react-icons/fa";
+import StudioSlideUpSection from "./Studioslideup";
 
 export default function ServicesSection() {
   return (
@@ -21,7 +21,7 @@ export default function ServicesSection() {
         </h2>
         <div className="w-20 h-[3px] bg-black mx-auto mb-10"></div>
 
-        <SlideUpSection>
+        <StudioSlideUpSection>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
             {/* Service Card */}
             {services.map((service, index) => (
@@ -41,7 +41,7 @@ export default function ServicesSection() {
               </div>
             ))}
           </div>
-        </SlideUpSection>
+        </StudioSlideUpSection>
       </div>
     </section>
   );

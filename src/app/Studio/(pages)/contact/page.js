@@ -8,8 +8,9 @@ import { IoIosMail } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import StudioContact from "../../Components/StudioContact";
-import SlideleftSection from "@/app/innovations/Components/Slideleft";
-import SliderightSection from "@/app/innovations/Components/Slideright";
+import Techequipment from "../../Components/Techequipment";
+import StudioSliderightSection from "../../Components/Studioslideright";
+import StudioSlideleftSection from "../../Components/Studioslideleft";
 
 
 
@@ -43,7 +44,7 @@ export default function Page() {
         {/* Content + Form Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12 md:py-16 grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Left Text */}
-          <SliderightSection>
+          <StudioSliderightSection>
           <div className="space-y-6">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800">
               Connect With Us
@@ -108,9 +109,9 @@ export default function Page() {
 
             </div>
           </div>
-          </SliderightSection>
+          </StudioSliderightSection>
           {/* Right Call-to-Action Box */}
-          <SlideleftSection>
+          <StudioSlideleftSection>
           <section className="w-full h-[550px] px-8 rounded-2xl ">
         <iframe
           title="Enid Innovations Location"
@@ -124,13 +125,14 @@ export default function Page() {
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </section>
-      </SlideleftSection>
+      </StudioSlideleftSection>
         </div>
 
         <div>
           <StudioContact/>
         </div>
       </main>
+      <Techequipment/>
     </section>
   );
 }

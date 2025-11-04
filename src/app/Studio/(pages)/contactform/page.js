@@ -5,6 +5,7 @@ import Image from "next/image";
 import toast from "react-hot-toast";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import Projectsslider from "../../Components/Projectslider";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -110,7 +111,7 @@ export default function ContactForm() {
     {/* Left Image */}
     <div className="w-full md:w-1/2 h-72 md:h-auto">
       <Image
-        src="/assets/studio/tech3.jpg" // <-- your image path
+        src="/assets/studio/tech4.jpg" // <-- your image path
         alt="Contact illustration"
         width={600}
         height={600}
@@ -212,7 +213,7 @@ export default function ContactForm() {
     </div>
   </motion.div>
 </div>
-
+<Projectsslider/>
     </main>
   );
 }

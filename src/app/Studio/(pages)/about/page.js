@@ -5,8 +5,9 @@ import { FaBullseye } from "react-icons/fa6";
 import React from 'react'
 import Whychoose from "../../Components/Whychoose";
 import { FaHandshake } from "react-icons/fa";
-import SliderightSection from "@/app/innovations/Components/Slideright";
-import SlideleftSection from "@/app/innovations/Components/Slideleft";
+import Techequipment from "../../Components/Techequipment";
+import StudioSlideleftSection from "../../Components/Studioslideleft";
+import StudioSliderightSection from "../../Components/Studioslideright";
 
 export default function About() {
   return (
@@ -45,7 +46,7 @@ export default function About() {
       </div>
      <section className="max-w-7xl mx-auto px-6 pt-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-white text-black">
   {/* Left Image Section */}
-  <SliderightSection>
+  <StudioSliderightSection>
   <div className="relative rounded-xl overflow-hidden shadow-lg md:col-span-1 flex justify-center order-1 md:order-none" >
   <Image
     src="/assets/studio/tech2.jpg"
@@ -55,10 +56,10 @@ export default function About() {
     className="object-cover rounded-xl hover:scale-105 transition-transform duration-500"
   />
 </div>
-</SliderightSection>
+</StudioSliderightSection>
 
   {/* Right Text Section */}
-  <SlideleftSection>
+  <StudioSlideleftSection>
   <div className="md:col-span-1" >
     <div className="flex items-center text-4xl md:text-5xl font-bold mb-8 tracking-tight gap-4">
       <FaBullseye />
@@ -85,13 +86,13 @@ export default function About() {
       vision drives the process.
     </p>
   </div>
-  </SlideleftSection>
+  </StudioSlideleftSection>
 </section>
 
 
     <Whychoose/>
 
-    <section className="bg-black max-w-7xl mx-auto my-10 rounded-2xl text-white py-15 px-6 md:px-10 lg:px-20">
+    <section className="bg-black max-w-5xl mx-auto my-10 rounded-2xl text-white py-10 px-6 md:px-10 lg:px-20">
       <div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -102,15 +103,15 @@ export default function About() {
         {/* Heading */}
         <div className="flex flex-col items-center gap-4 mb-6">
           <div className="bg-white text-black p-4 rounded-full shadow-md">
-            <FaHandshake className="text-3xl md:text-5xl" />
+            <FaHandshake className="text-2xl md:text-3xl" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+          <h2 className="text-4xl md:text-3xl font-bold tracking-tight">
             Our Commitment
           </h2>
         </div>
 
         {/* Text */}
-        <div className="space-y-3 text-gray-300 leading-relaxed text-lg md:text-xl">
+        <div className="space-y-3 text-gray-300 text-center  text-md md:text-md">
           <p>
             We’re committed to creating a safe, respectful, and collaborative
             environment for every client who walks through our doors. At Enid
@@ -130,6 +131,7 @@ export default function About() {
         <div className="mt-6 mx-auto w-54 h-[3px] bg-white/60 rounded-full"></div>
       </div>
     </section>
+    <Techequipment/>
     </main>
   )
 }

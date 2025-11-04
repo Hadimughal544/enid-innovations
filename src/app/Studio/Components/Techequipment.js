@@ -1,25 +1,25 @@
-import SlideleftSection from '@/app/innovations/Components/Slideleft'
-import SliderightSection from '@/app/innovations/Components/Slideright'
 import Image from 'next/image'
 import React from 'react'
+import StudioSliderightSection from './Studioslideright'
+import StudioSlideleftSection from './Studioslideleft'
 
 export default function Techequipment() {
   return (
     <section className="max-w-7xl mx-auto px-6 pb-20 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
       {/* left Image */}
-      <SliderightSection>
+      <StudioSliderightSection>
         <div className="rounded-xl overflow-hidden shadow-lg md:col-span-1 flex justify-center">
         <Image
-          src="/assets/studio/tech3.jpg"
+          src="/assets/studio/tech.jpg"
           alt="Telesales Solutions"
           width={600}
           height={200}
           className="object-cover rounded-xl hover:scale-105 transition-transform duration-500"
         />
       </div>
-      </SliderightSection>
+      </StudioSliderightSection>
         {/* right Content */}
-        <SlideleftSection>
+        <StudioSlideleftSection>
         <div className="md:col-span-1">
         <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
            Tech-Enabled Shooting Spaces
@@ -37,7 +37,7 @@ export default function Techequipment() {
            With tech-driven precision and a collaborative atmosphere, Enid Studio helps your visuals stand out every time.
         </p>
       </div>
-      </SlideleftSection>
+      </StudioSlideleftSection>
       </section>
   )
 }
