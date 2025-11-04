@@ -14,7 +14,7 @@ export default function MobileHeader() {
       <div className="flex items-center justify-between px-4 py-3">
         {/* Logo */}
         <div
-          onClick={() => router.push("/studio")}
+          onClick={() => router.push("/Studio")}
           className="flex items-center space-x-2 cursor-pointer"
         >
           <Image
@@ -40,7 +40,7 @@ export default function MobileHeader() {
           <nav className="flex flex-col px-6 py-4 space-y-3">
              <button
               onClick={() => {
-                router.push("/innovations");
+                router.push("/Innovations");
                 setMenuOpen(false);
               }}
               className="text-left text-gray-700 text-lg hover:text-[#00A86B] font-medium"
@@ -49,7 +49,7 @@ export default function MobileHeader() {
             </button>
             <button
               onClick={() => {
-                router.push("/studio/portfolio");
+                router.push("/Studio/Portfolio");
                 setMenuOpen(false);
               }}
               className="text-left text-gray-700 text-lg hover:text-[#00A86B] font-medium"
@@ -58,7 +58,7 @@ export default function MobileHeader() {
             </button>
             <button
               onClick={() => {
-                router.push("/studio/about");
+                router.push("/Studio/About");
                 setMenuOpen(false);
               }}
               className="text-left text-gray-700 text-lg hover:text-[#C00021] font-medium"
@@ -67,7 +67,7 @@ export default function MobileHeader() {
             </button>
             <button
               onClick={() => {
-                router.push("/studio/contact");
+                router.push("/Studio/Contact");
                 setMenuOpen(false);
               }}
               className="text-left text-gray-700 text-lg hover:text-[#00A86B] font-medium"

@@ -115,10 +115,10 @@ export default function Footer() {
             <h3 className="text-2xl font-semibold text-white mb-2">Explore</h3>
             <ul className="space-y-2">
               <li><Link href="/" className=" hover-underline">Home</Link></li>
-              <li><Link href="/studio" className="hover-underline">Enid Studio</Link></li>
-              <li><Link href="/innovations#services" className="hover-underline">Services</Link></li>
-              <li><Link href="/innovations/about" className="hover-underline">About Us</Link></li>
-              <li><Link href="/innovations/contact" className="hover-underline">Contact</Link></li>
+              <li><Link href="/Studio" className="hover-underline">Enid Studio</Link></li>
+              <li><Link href="/Innovations#services" className="hover-underline">Services</Link></li>
+              <li><Link href="/Innovations/About" className="hover-underline">About Us</Link></li>
+              <li><Link href="/Innovations/Contact" className="hover-underline">Contact</Link></li>
             </ul>
           </div>
 
@@ -126,11 +126,11 @@ export default function Footer() {
           <div>
             <h3 className="text-2xl font-semibold text-white mb-2">Our Services</h3>
             <ul className="space-y-2">
-              <li><Link href="/innovations/telesales-marketing" className="hover-underline">Telesales Marketing</Link></li>
-              <li><Link href="/innovations/web-development" className="hover-underline">Web Design & Development</Link></li>
-              <li><Link href="/innovations/app-development" className="hover-underline">App Development</Link></li>
-              <li><Link href="/innovations/digital-marketing" className="hover-underline">Digital Marketing</Link></li>
-              <li><Link href="/innovations/graphic-designing" className="hover-underline">Graphic Designing</Link></li>
+              <li><Link href="/Innovations/Telesales-marketing" className="hover-underline">Telesales Marketing</Link></li>
+              <li><Link href="/Innovations/Web-development" className="hover-underline">Web Design & Development</Link></li>
+              <li><Link href="/Innovations/App-development" className="hover-underline">App Development</Link></li>
+              <li><Link href="/Innovations/Digital-marketing" className="hover-underline">Digital Marketing</Link></li>
+              <li><Link href="/Innovations/Graphic-designing" className="hover-underline">Graphic Designing</Link></li>
             </ul>
           </div>
 

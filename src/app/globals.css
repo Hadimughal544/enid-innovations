@@ -36,6 +36,12 @@ h1, h2, h3, .subtitle {
   box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.6);
 }
 
+/* globals.css */
+.text-shadow {
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.6);
+}
+
+
 html {
   scroll-behavior: smooth;
 }

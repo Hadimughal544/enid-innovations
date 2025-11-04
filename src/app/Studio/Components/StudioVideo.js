@@ -5,13 +5,13 @@ import Link from "next/link";
 
 export default function StudioVideoBackground() {
   const videos = [
-    "/assets/studio/video1-1.mp4",
-    "/assets/studio/video4.mp4",
-    "/assets/studio/video5.mp4",
-    "/assets/studio/video6.mp4",
-    "/assets/studio/video8.mp4",
-    "/assets/studio/video9.mp4",
-    "/assets/studio/video10.mp4",
+    "/assets/studio/v1.mp4",
+    "/assets/studio/v2.mp4",
+    "/assets/studio/v3.mp4",
+    "/assets/studio/v4.mp4",
+    "/assets/studio/v5.mp4",
+    "/assets/studio/v6.mp4",
+    "/assets/studio/v7.mp4",
   ];
 
   const [currentVideo, setCurrentVideo] = useState(0);
@@ -19,7 +19,7 @@ export default function StudioVideoBackground() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentVideo((prev) => (prev + 1) % videos.length);
-    }, 8000); // change every 5 seconds
+    }, 4000); // change every 5 seconds
 
     return () => clearInterval(timer);
   }, [videos.length]);
@@ -27,7 +27,7 @@ export default function StudioVideoBackground() {
   return (
     <div className="relative w-full h-[350px] sm:h-[400px] md:h-[500px] lg:h-[700px] overflow-hidden">
       {/* Smooth transition between videos */}
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="sync">
         <motion.video
           key={currentVideo}
           src={videos[currentVideo]}
@@ -36,10 +36,11 @@ export default function StudioVideoBackground() {
           playsInline
           loop
           className="absolute inset-0 w-full h-full object-cover"
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 1 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
+          initial={{ opacity: 0 }}
+animate={{ opacity: 1 }}
+exit={{ opacity: 0 }}
+transition={{ duration: 1.2, ease: "easeInOut" }}
+
         />
       </AnimatePresence>
 
@@ -61,7 +62,7 @@ export default function StudioVideoBackground() {
           designed to make your business stand out.
         </p>
 
-        <Link href="/studio/contactform">
+        <Link href="/Studio/Contactform">
           <button className="bg-white text-black py-2.5 px-6 sm:py-3 sm:px-8 md:py-4 md:px-10 rounded-2xl border-2 border-black hover:bg-black hover:border-white hover:text-white transition-all duration-300 text-sm sm:text-base md:text-lg font-medium">
             BOOK NOW
           </button>

@@ -53,7 +53,7 @@ export default function StudioSlideshow() {
           are designed to make your business stand out.
         </p>
 
-        <Link href="/studio/contactform">
+        <Link href="/Studio/Contactform">
           <button className="bg-white text-black py-3 px-6 sm:py-4 sm:px-8 rounded-2xl border-2 border-black hover:bg-black hover:border-white hover:text-white transition-all duration-300 cursor-pointer text-sm sm:text-base font-medium">
             BOOK NOW
           </button>

@@ -37,7 +37,7 @@ export default function StudioFooter() {
           <ul className="space-y-3 text-sm">
             <li>
               <Link
-                href="/studio/portfolio"
+                href="/Studio/Portfolio"
                 className="hover:text-gray-300 transition hover-underline"
               >
                 Portfolio
@@ -45,7 +45,7 @@ export default function StudioFooter() {
             </li>
             <li>
               <Link
-                href="/studio#services"
+                href="/Studio#services"
                 className="hover:text-gray-300 transition hover-underline"
               >
                 Our Services
@@ -53,7 +53,7 @@ export default function StudioFooter() {
             </li>
             <li>
               <Link
-                href="/studio/about"
+                href="/Studio/About"
                 className="hover:text-gray-300 transition hover-underline"
               >
                 About Us
@@ -61,7 +61,7 @@ export default function StudioFooter() {
             </li>
             <li>
               <Link
-                href="/studio/contact"
+                href="/Studio/Contact"
                 className="hover:text-gray-300 transition hover-underline"
               >
                 Contact
