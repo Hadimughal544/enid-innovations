@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Geist, Geist_Mono } from "next/font/google";
-import "../globals.css";
 import StudioHeader from "./Components/Header";
 import StudioFooter from "./Components/Footer";
 import StudioLoadingScreen from "./Components/Loadingscreen";
