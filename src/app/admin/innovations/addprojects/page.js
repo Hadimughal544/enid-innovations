@@ -1,6 +1,6 @@
 "use client";
-import ProtectedRoute from "@/app/innovations/Components/Protectedroute";
 import React, { useState } from "react";
+import ProtectedRoute from "../../Components/Protectedroute";
 
 export default function AdminPanel() {
   const [description, setDescription] = useState("");

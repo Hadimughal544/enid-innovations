@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import ProtectedRoute from "@/app/innovations/Components/Protectedroute";
+import ProtectedRoute from "../../Components/Protectedroute";
 
 export default function StudioProjectsUpload() {
   const [formData, setFormData] = useState({
