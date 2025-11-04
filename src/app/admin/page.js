@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import ProtectedRoute from "../../Components/Protectedroute";
+import ProtectedRoute from "./Components/Protectedroute";
+
 
 export default function Home() {
   function handleLogout() {

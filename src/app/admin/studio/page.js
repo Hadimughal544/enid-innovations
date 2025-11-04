@@ -1,7 +1,6 @@
 "use client";
-
-import ProtectedRoute from "../../Components/Protectedroute";
 import Link from "next/link";
+import ProtectedRoute from "../Components/Protectedroute";
 
 export default function StudioPage() {
   return (
