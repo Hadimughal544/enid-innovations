@@ -64,7 +64,7 @@ export default function Home() {
       {/* Left Side – Enid Innovations */}
       <div
         onMouseEnter={playHoverSound}
-        onClick={() => router.push("/innovations")}
+        onClick={() => router.push("/Innovations")}
         className="relative z-20 group flex-1 flex items-center justify-center cursor-pointer transition-all duration-700 transform hover:scale-[1.03] overflow-hidden"
         style={{ cursor: "url('/assets/cursor1-1.cur'), auto" }}
       >
@@ -88,7 +88,7 @@ export default function Home() {
       {/* Right Side – Enid Studio */}
       <div
         onMouseEnter={playHoverSound}
-        onClick={() => router.push("/studio")}
+        onClick={() => router.push("/Studio")}
         className="relative z-20 group flex-1 flex items-center justify-center cursor-pointer transition-all duration-700 transform hover:scale-[1.03] overflow-hidden"
         style={{ cursor: "url('/assets/cursor1-1.cur'), auto" }}
       >
