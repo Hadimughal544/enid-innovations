@@ -9,13 +9,18 @@ export default function Home() {
   const router = useRouter();
   const hoverSound = useRef(null);
   const bgMusic = useRef(null);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
 
   // Load saved mute state from localStorage
   useEffect(() => {
-    const savedMute = localStorage.getItem("bg-muted") === "true";
-    setIsMuted(savedMute);
-    if (bgMusic.current) bgMusic.current.muted = savedMute;
+    // Ensure it's muted at start
+    if (bgMusic.current) {
+      bgMusic.current.muted = true;
+      bgMusic.current.volume = 0.6; // optional
+      bgMusic.current.play().catch(() => {
+        // ignore autoplay restriction
+      });
+    }
   }, []);
 
   // Play hover sound
@@ -30,21 +35,29 @@ export default function Home() {
   const toggleMute = () => {
     const newMuteState = !isMuted;
     setIsMuted(newMuteState);
+
     if (bgMusic.current) {
       bgMusic.current.muted = newMuteState;
+      if (!newMuteState) {
+        // Play only after user clicks unmute
+        bgMusic.current
+          .play()
+          .catch((err) => console.log("Playback blocked:", err));
+      }
     }
+
     localStorage.setItem("bg-muted", newMuteState);
   };
 
   return (
-    <div
+      <div
       className="relative h-screen w-full flex flex-col md:flex-row overflow-hidden bg-center bg-no-repeat bg-cover"
       style={{
         cursor: "url('/assets/cursor1-1.cur'), auto",
       }}
     >
       {/* Background Music */}
-      <audio ref={bgMusic} autoPlay loop>
+      <audio ref={bgMusic} loop>
         <source src="/assets/BGloop2.mp3" type="audio/mpeg" />
       </audio>
 
@@ -116,7 +129,7 @@ export default function Home() {
         title={isMuted ? "Unmute" : "Mute"}
       >
         {isMuted ? <FaVolumeMute size={20} /> : <FaVolumeUp size={20} />}
-      </button>
+      </button> 
 
       {/* CSS Styles */}
       <style jsx>{`

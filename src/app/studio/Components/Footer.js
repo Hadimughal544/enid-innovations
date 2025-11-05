@@ -86,7 +86,7 @@ export default function StudioFooter() {
                 href="mailto:studio@enid.pk"
                 className="hover:text-gray-300 hover-underline"
               >
-                info@enidstudio.pk
+                studio@enid.pk
               </Link>
             </div>
             <div className="flex items-start gap-3">

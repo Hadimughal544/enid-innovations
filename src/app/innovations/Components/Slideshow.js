@@ -17,7 +17,7 @@ export default function Slideshow() {
   }, []);
 
   return (
-    <div className="relative w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[550px] xl:h-[650px] overflow-hidden">
+    <div className="relative w-full h-[320px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] overflow-hidden">
       {images.map((src, index) => (
         <Image
           key={index}
@@ -35,25 +35,28 @@ export default function Slideshow() {
       <div className="absolute inset-0 bg-black/40 z-10"></div>
 
       {/* Text Overlay */}
-      <SlideleftSection>
-        <div className="absolute inset-0 flex flex-col justify-center text-white z-20 px-4 sm:px-10 md:px-20 max-w-3xl space-y-4 md:space-y-6">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+    
+        <div className="absolute inset-0 flex flex-col justify-center text-white z-20 px-5 sm:px-10 md:px-16 max-w-2xl space-y-3 sm:space-y-5">
+          <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-snug sm:leading-tight">
             Scale Your Business with Enid Innovations
           </h1>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-justify max-w-2xl">
-            Enid Innovations is your trusted partner in digital transformation. From customer engagement
-            to backend systems, we craft tailored BPO and IT strategies that fuel efficiency and long-term
-            success. Let’s build better together.
+
+          <p className="text-xs sm:text-sm md:text-base lg:text-lg text-justify">
+            Enid Innovations is your trusted partner in digital transformation.
+            From customer engagement to backend systems, we craft tailored BPO
+            and IT strategies that fuel efficiency and long-term success.
+            Let’s build better together.
           </p>
+
           <div>
             <Link href="/innovations/contactform">
-              <button className="mt-2 sm:mt-4 bg-[#0b6a6b] py-2 sm:py-3 px-5 sm:px-8 rounded-xl sm:rounded-2xl border border-white text-sm sm:text-base font-medium hover:bg-[#bf202f] hover:border-[#0b6a6b] hover:text-white transition">
+              <button className="mt-2 sm:mt-4 bg-[#0b6a6b] py-2 sm:py-3 px-5 sm:px-8 rounded-lg sm:rounded-xl border border-white text-xs sm:text-base font-medium hover:bg-[#bf202f] hover:border-[#0b6a6b] transition">
                 Get in touch
               </button>
             </Link>
           </div>
         </div>
-      </SlideleftSection>
+      
     </div>
   );
 }

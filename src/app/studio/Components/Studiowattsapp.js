@@ -5,9 +5,9 @@ export default function StudioFloatingbutton() {
   return (
     <div>
       <Link 
-        href="https://wa.me/+92234464400"// Replace with your actual number in international format
+        href="https://wa.me/+923234464400"// Replace with your actual number in international format
         aria-label="Chat on WhatsApp"
-        className="fixed bottom-6 right-6 bg-green-600 text-white p-4 rounded-full shadow-lg z-50 transition duration-300"
+        className="fixed bottom-6 right-6 bg-black text-white p-4 rounded-full shadow-lg z-50 transition duration-300"
         target="_blank"
         rel="noopener noreferrer"
       >

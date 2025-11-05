@@ -35,7 +35,7 @@ export default function InnovationsLayout({ children }) {
     <div className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
       {loading && <LoadingScreen/>}
       <Header />
-      <main className="pt-25">{children}</main>
+      <main className=" sm:pt-0 md:pt-25">{children}</main>
       <Floatingbutton/>
       <Ourprocess />
       <Portfolio/>

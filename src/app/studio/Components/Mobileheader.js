@@ -9,7 +9,7 @@ export default function MobileHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50  bg-[#e6e7e8] backdrop-blur-lg shadow-sm lg:hidden">
+    <header className=" z-50  bg-[#e6e7e8] backdrop-blur-lg shadow-sm lg:hidden">
       {/* Top Bar */}
       <div className="flex items-center justify-between px-4 py-3">
         {/* Logo */}

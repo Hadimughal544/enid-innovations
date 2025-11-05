@@ -134,20 +134,29 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-  <h3 className="text-2xl font-semibold text-white mb-3">Stay Updated</h3>
-  <p className="text-gray-200 mb-4">Get the latest updates and insights from Enid Innovations.</p>
-  <form className="flex gap-2">
+        <div className="w-full max-w-md">
+  <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3">
+    Stay Updated
+  </h3>
+  <p className="text-sm sm:text-base text-gray-200 mb-4">
+    Get the latest updates and insights from Enid Innovations.
+  </p>
+
+  <form className="flex flex-col sm:flex-row gap-2">
     <input
       type="email"
       placeholder="Enter your email"
-      className="p-2 rounded-l bg-white text-gray-800 rounded-xl focus:outline-none flex-1"
+      className="p-2 sm:p-3 bg-white text-gray-800 rounded-xl focus:outline-none flex-1 w-full"
     />
-    <button className="bg-white text-black  hover:bg-[#bf202f] cursor-pointer hover:text-white px-4 py-2 rounded-xl transition">
+    <button
+      type="submit"
+      className="bg-white text-black hover:bg-[#bf202f] hover:text-white px-4 sm:px-6 py-2 sm:py-3 rounded-xl transition w-full sm:w-auto"
+    >
       Subscribe
     </button>
   </form>
 </div>
+
         </section>
          <div className="border-b border-white "></div>
 
