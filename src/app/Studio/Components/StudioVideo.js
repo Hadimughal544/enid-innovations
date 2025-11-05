@@ -62,7 +62,7 @@ transition={{ duration: 1.2, ease: "easeInOut" }}
           designed to make your business stand out.
         </p>
 
-        <Link href="/Studio/Contactform">
+        <Link href="/studio/contactform">
           <button className="bg-white text-black py-2.5 px-6 sm:py-3 sm:px-8 md:py-4 md:px-10 rounded-2xl border-2 border-black hover:bg-black hover:border-white hover:text-white transition-all duration-300 text-sm sm:text-base md:text-lg font-medium">
             BOOK NOW
           </button>

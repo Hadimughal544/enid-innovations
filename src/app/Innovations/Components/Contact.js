@@ -18,7 +18,7 @@ export default function ContactCTA() {
 
     {/* Button */}
     <div>
-      <Link href="/Innovations/Contactform">
+      <Link href="/innovations/contactform">
         <button className="bg-white hover:bg-[#bf202f] text-[#0b6a6b] hover:text-white cursor-pointer font-medium px-6 py-3 rounded-lg shadow-md transition-all">
           Get a Quote
         </button>

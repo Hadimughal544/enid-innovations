@@ -6,6 +6,7 @@ import StudioHeader from "./Components/Header";
 import StudioFooter from "./Components/Footer";
 import StudioLoadingScreen from "./Components/Loadingscreen";
 import MobileHeader from "./Components/Mobileheader";
+import StudioFloatingbutton from "./Components/Studiowattsapp";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +32,7 @@ export default function StudioLayout({ children }) {
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
       {loading && <StudioLoadingScreen/>}
+      <StudioFloatingbutton/>
         <StudioHeader />
         <MobileHeader/>
       <main className=" mt-10 md:mt-0" >{children}</main>

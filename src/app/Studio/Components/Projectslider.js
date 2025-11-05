@@ -66,7 +66,7 @@ export default function Projectsslider() {
             projects.map((project) => (
               <SwiperSlide key={project.id}>
                 <Link
-                  href={`/Studio/Studioprojects/${project.id}`}
+                  href={`/Studio/studioprojects/${project.id}`}
                   className="relative group rounded-xl overflow-hidden shadow-lg bg-white hover:shadow-2xl transition-all duration-300 block"
                 >
                   {/* Image */}

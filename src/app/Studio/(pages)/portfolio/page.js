@@ -39,7 +39,7 @@ export default function StudioProjectsSection() {
               {projects.map((project) => (
                 <Link
                   key={project.id}
-                  href={`/Studio/Studioprojects/${project.id}`}
+                  href={`/Studio/studioprojects/${project.id}`}
                   className="group relative block rounded-xl overflow-hidden shadow-md"
                 >
                   <div className="relative h-94 w-full">

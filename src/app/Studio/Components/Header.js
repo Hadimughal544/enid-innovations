@@ -18,7 +18,7 @@ export default function Header() {
         
         {/* Logo / Brand */}
         <div
-          onClick={() => router.push("/Studio")}
+          onClick={() => router.push("/studio")}
           className="text-2xl font-bold cursor-pointer flex items-center space-x-1"
         >
             <Image
@@ -38,25 +38,25 @@ export default function Header() {
            <LuUndo2 size={25}/>
           </Link>
           <div
-            onClick={() => router.push("/Innovations")}
+            onClick={() => router.push("/innovations")}
             className="cursor-pointer text-black hover:text-[#00A86B] font-bold text-lg transition-colors"
           >Innnovations
           </div>
 
           <div
-            onClick={() => router.push("/Studio/Portfolio")}
+            onClick={() => router.push("/studio/portfolio")}
             className="cursor-pointer text-black hover:text-[#C00021] font-bold text-lg transition-colors"
           >Portfolio
           </div>
           
           <div
-            onClick={() => router.push("/Studio/About")}
+            onClick={() => router.push("/studio/about")}
             className="cursor-pointer text-black hover:text-[#C00021] font-bold text-lg transition-colors"
           >
             About
           </div>
           <div
-            onClick={() => router.push("/Studio/Contact")}
+            onClick={() => router.push("/studio/contact")}
             className="cursor-pointer text-black hover:text-[#C00021] font-bold text-lg transition-colors"
           >
             Contact

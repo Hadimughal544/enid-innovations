@@ -129,7 +129,7 @@ export default function Header() {
             <LuUndo2 size={24} />
           </Link>
           <Link
-            href="/Studio"
+            href="/studio"
             className="text-gray-700 hover:text-[#C00021] font-medium transition-colors"
           >
             Studio
@@ -143,11 +143,11 @@ export default function Header() {
             </button>
             <ul className="absolute left-0 top-full mt-2 bg-[#ecf3f3] border border-gray-200 shadow-lg rounded-lg w-56 text-gray-700 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
               {[
-                { name: "Telesales Marketing", path: "/Innovations/Telesales-marketing" },
-                { name: "Web Development", path: "/Innovations/Web-development" },
-                { name: "App Development", path: "/Innovations/App-development" },
-                { name: "Digital Marketing", path: "/Innovations/Digital-marketing" },
-                { name: "Graphic Designing", path: "/Innovations/Graphic-designing" },
+                { name: "Telesales Marketing", path: "/innovations/telesales-marketing" },
+                { name: "Web Development", path: "/innovations/web-development" },
+                { name: "App Development", path: "/innovations/app-development" },
+                { name: "Digital Marketing", path: "/innovations/digital-marketing" },
+                { name: "Graphic Designing", path: "/innovations/graphic-designing" },
               ].map((item) => (
                 <li key={item.name}>
                   <Link href={item.path} className="block px-4 py-2 hover:bg-[#b5d2d2]">
@@ -159,13 +159,13 @@ export default function Header() {
           </div>
 
           <Link
-            href="/Innovations/About"
+            href="/innovations/about"
             className="text-gray-700 hover:text-[#00A86B] font-medium transition-colors"
           >
             About
           </Link>
           <Link
-            href="/Innovations/Contact"
+            href="/innovations/contact"
             className="text-gray-700 hover:text-[#00A86B] font-medium transition-colors"
           >
             Contact
@@ -198,7 +198,7 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <Link href="/Studio" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/studio" onClick={() => setMobileMenuOpen(false)}>
                   Studio
                 </Link>
               </li>
@@ -218,7 +218,7 @@ export default function Header() {
                     ].map((service, idx) => (
                       <li key={idx}>
                         <Link
-                          href={`/Innovations/${service
+                          href={`/innovations/${service
                             .toLowerCase()
                             .replace(/ /g, '-')}`}
                           onClick={() => setMobileMenuOpen(false)}
@@ -232,7 +232,7 @@ export default function Header() {
               </li>
               <li>
                 <Link
-                  href="/Innovations/About"
+                  href="/innovations/about"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   About
@@ -240,7 +240,7 @@ export default function Header() {
               </li>
               <li>
                 <Link
-                  href="/Innovations/Contact"
+                  href="/innovations/contact"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Contact
@@ -252,7 +252,7 @@ export default function Header() {
                   <MdOutlineSmartphone size={20} />
                   <Link href="tel:04232332713">0423-2332713</Link>
                 </div>
-                <Link href="/Innovations/Contactform">
+                <Link href="/innovations/contactform">
                 <button className="mt-4 w-full bg-[#0b6a6b] text-white py-2 rounded-lg font-medium">
                   Get a Quote
                 </button>

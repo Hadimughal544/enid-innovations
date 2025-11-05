@@ -8,6 +8,7 @@ import Ourprocess from "./Components/Ourservice";
 import Footer from "./Components/Footer";
 import Portfolio from "./Components/Portfolio";
 import LoadingScreen from "./Components/LoadingScreen";
+import Floatingbutton from "./Components/Floatingbutton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,6 +36,7 @@ export default function InnovationsLayout({ children }) {
       {loading && <LoadingScreen/>}
       <Header />
       <main className="pt-25">{children}</main>
+      <Floatingbutton/>
       <Ourprocess />
       <Portfolio/>
       <Footer />

@@ -17,7 +17,7 @@ export default function StudioContact() {
 
     {/* Button */}
     <div>
-      <Link href="/Studio/Contactform">
+      <Link href="/studio/contactform">
         <button className="bg-white hover:bg-[#bf202f] text-black hover:text-white cursor-pointer font-medium px-6 py-3 rounded-lg shadow-md transition-all">
           BOOKING NOW
         </button>
