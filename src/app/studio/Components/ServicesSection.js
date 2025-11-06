@@ -22,11 +22,11 @@ export default function ServicesSection() {
         <div className="w-20 h-[3px] bg-black mx-auto mb-10 sm:mb-14"></div>
 
         <StudioSlideUpSection>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white shadow-md hover:shadow-xl transition-all rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center border border-gray-100 hover:border-gray-200"
+                className="bg-white shadow-md hover:shadow-xl nav-link2 transition-all rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center border border-gray-100 hover:border-gray-200"
               >
                 <div className="text-4xl sm:text-5xl text-white mb-5 p-5 sm:p-6 bg-black rounded-full flex items-center justify-center">
                   {service.icon}

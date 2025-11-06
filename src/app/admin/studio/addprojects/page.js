@@ -51,7 +51,7 @@ export default function StudioProjectsUpload() {
     detailImages.forEach((img) => data.append("detailImages", img));
 
     try {
-      const res = await fetch("http://localhost:4000/studioprojects", {
+      const res = await fetch("https://enid.pk/api/studioprojects", {
         method: "POST",
         body: data,
       });

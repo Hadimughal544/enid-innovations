@@ -13,7 +13,7 @@ export default function Projectsslider() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/studioprojects")
+    fetch("https://enid.pk/api/studioprojects")
       .then((res) => res.json())
       .then((data) => setProjects(data))
       .catch((err) => console.error("Error fetching projects:", err));
@@ -72,7 +72,7 @@ export default function Projectsslider() {
                   {/* Image */}
                   <div className="relative w-full h-76 md:h-95 lg:h-95">
                     <Image
-                      src={`http://localhost:4000/uploads/${project.headerImage}`}
+                      src={`https://enid.pk/api/uploads/${project.headerImage}`}
                       alt={project.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"

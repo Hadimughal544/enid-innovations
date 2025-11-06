@@ -8,7 +8,7 @@ export default function StudioProjectsSection() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/studioprojects")
+    fetch("https://enid.pk/api/studioprojects")
       .then((res) => res.json())
       .then((data) => setProjects(data))
       .catch((err) => console.error("Error fetching projects:", err));
@@ -44,7 +44,7 @@ export default function StudioProjectsSection() {
                 >
                   <div className="relative h-94 w-full">
                     <Image
-                      src={`http://localhost:4000/uploads/${project.headerImage}`}
+                      src={`https://enid.pk/api/uploads/${project.headerImage}`}
                       alt={project.title}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-110"

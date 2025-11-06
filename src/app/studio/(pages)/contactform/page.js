@@ -8,6 +8,7 @@ import "react-phone-number-input/style.css";
 import Projectsslider from "../../Components/Projectslider";
 
 export default function ContactForm() {
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -43,40 +44,45 @@ export default function ContactForm() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
+  setLoading(true);
 
-    try {
-      const response = await fetch("http://localhost:4000/studioform", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          fullname: formData.name,
-          email: formData.email,
-          phonenumber: formData.phone,
-          service: formData.service,
-          details: formData.details,
-        }),
-      });
+  try {
+    const response = await fetch("https://enid.pk/api/studioform", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        fullname: formData.name,
+        email: formData.email,
+        phonenumber: formData.phone,
+        service: formData.service,
+        details: formData.details,
+      }),
+    });
 
-      if (!response.ok) throw new Error("Failed to submit form");
-
-      const result = await response.json();
-      console.log("Form successfully submitted:", result);
-
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        service: "",
-        details: "",
-      });
-
-      toast.success("Form Submitted Successfully");
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      toast.error("Something went wrong. Please try again.");
+    if (!response.ok) {
+      throw new Error("Failed to submit form");
     }
-  };
+
+    await response.json();
+    toast.success("Form Submitted Successfully");
+
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      service: "",
+      details: "",
+    });
+  } catch (error) {
+    toast.error("Something went wrong. Try again.");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <main>
@@ -202,13 +208,21 @@ export default function ContactForm() {
 
         {/* Submit Button */}
         <motion.button
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-          type="submit"
-          className="w-full bg-black hover:bg-teal-500 text-white hover:text-white font-semibold py-3 rounded-xl cursor-pointer transition-all duration-300 shadow-md"
-        >
-          Submit
-        </motion.button>
+  whileHover={{ scale: loading ? 1 : 1.03 }}
+  whileTap={{ scale: loading ? 1 : 0.97 }}
+  type="submit"
+  disabled={loading}
+  className={`w-full flex items-center justify-center bg-black cursor-pointer hover:bg-[#bf202f] text-white font-semibold py-3 rounded-xl transition-all duration-300 shadow-md ${
+    loading ? "opacity-70 cursor-not-allowed" : ""
+  }`}
+>
+  {loading ? (
+    <div className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+  ) : (
+    "Submit"
+  )}
+</motion.button>
+
       </form>
     </div>
   </motion.div>

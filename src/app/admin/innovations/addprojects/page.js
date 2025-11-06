@@ -23,7 +23,7 @@ export default function AdminPanel() {
       setLoading(true);
       setMessage("");
 
-      const res = await fetch("http://localhost:4000/projects", {
+      const res = await fetch("https://enid.pk/api/projects", {
         method: "POST",
         body: formData,
       });

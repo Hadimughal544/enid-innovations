@@ -12,7 +12,7 @@ export default function Portfolio() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/projects")
+    fetch("https://enid.pk/api/projects")
       .then((res) => res.json())
       .then((data) => setProjects(data))
       .catch((err) => console.error("Error fetching projects:", err));
@@ -77,7 +77,7 @@ export default function Portfolio() {
                   {/* Image */}
                   <div className="relative w-full h-56 sm:h-64 md:h-72 lg:h-65">
                     <Image
-                      src={`http://localhost:4000/uploads/${project.image}`}
+                      src={`https://enid.pk/api/uploads/${project.image}`}
                       alt="Project"
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"

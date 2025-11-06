@@ -104,7 +104,7 @@ export default function Header() {
             </Link>
           </div>
           <Link href="/innovations/contactform">
-            <button className="px-3 py-1.5 hidden md:block  rounded-md text-xs sm:text-sm font-medium bg-white text-[#0b6a6b] hover:bg-[#bf202f] hover:text-white transition">
+            <button className="px-3 py-1.5 hidden md:block cursor-pointer  rounded-md text-xs sm:text-sm font-medium bg-white text-[#0b6a6b] hover:bg-[#bf202f] hover:text-white transition">
               Get a Quote
             </button>
           </Link>

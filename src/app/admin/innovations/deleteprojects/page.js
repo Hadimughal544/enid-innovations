@@ -16,7 +16,7 @@ export default function AdminProjectsPage() {
   const fetchProjects = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:4000/projects");
+      const res = await fetch("https://enid.pk/api/projects");
       const data = await res.json();
       setProjects(data);
     } catch (err) {
@@ -31,7 +31,7 @@ export default function AdminProjectsPage() {
     if (!confirm("Are you sure you want to delete this project?")) return;
     setDeletingId(id);
     try {
-      const res = await fetch(`http://localhost:4000/projects/${id}`, {
+      const res = await fetch(`https://enid.pk/api/projects/${id}`, {
         method: "DELETE",
       });
 
@@ -68,7 +68,7 @@ export default function AdminProjectsPage() {
               >
                 <div className="flex items-center gap-4">
                   <Image
-                    src={`http://localhost:4000/uploads/${project.image}`}
+                    src={`https://enid.pk/api/uploads/${project.image}`}
                     alt={project.description || "Project image"}
                     width={160}
                     height={80}

@@ -77,7 +77,7 @@ export default function StudioProjectDetail() {
             className="relative flex-1 w-full h-80 md:h-136 rounded-xl overflow-hidden shadow-lg"
           >
             <Image
-              src={`http://localhost:4000/uploads/${project.headerImage}`}
+              src={`https://enid.pk/api/uploads/${project.headerImage}`}
               alt={project.title}
               fill
               className="object-cover"
@@ -104,7 +104,7 @@ export default function StudioProjectDetail() {
                   className="relative h-90 rounded-lg overflow-hidden shadow cursor-pointer group"
                 >
                   <Image
-                    src={`http://localhost:4000/uploads/${img}`}
+                    src={`https://enid.pk/api/uploads/${img}`}
                     alt={`Detail ${i + 1}`}
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-110"
@@ -173,7 +173,7 @@ export default function StudioProjectDetail() {
               className="relative w-[90%] max-w-4xl h-[80vh] cursor-grab active:cursor-grabbing"
             >
               <Image
-                src={`http://localhost:4000/uploads/${project.detailImages[currentIndex]}`}
+                src={`https://enid.pk/api/uploads/${project.detailImages[currentIndex]}`}
                 alt={`Gallery ${currentIndex + 1}`}
                 fill
                 className="object-contain select-none"
