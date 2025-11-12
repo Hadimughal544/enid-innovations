@@ -55,6 +55,7 @@ export default function Home() {
       style={{
         cursor: "url('/assets/cursor1-1.cur'), auto",
       }}
+      
     >
       {/* Background Music */}
       <audio ref={bgMusic} loop>
@@ -130,6 +131,7 @@ export default function Home() {
       >
         {isMuted ? <FaVolumeMute size={20} /> : <FaVolumeUp size={20} />}
       </button> 
+      
 
       {/* CSS Styles */}
       <style jsx>{`
@@ -204,6 +206,7 @@ export default function Home() {
           }
         }
       `}</style>
+      
     </div>
   );
 }
