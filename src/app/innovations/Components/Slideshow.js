@@ -7,7 +7,8 @@ import React, { useEffect, useState } from "react";
 
 export default function Slideshow() {
   const videos = [
-  "/assets/slideshow/E1.mp4",
+  "/assets/slideshow/e0.mp4",
+  "/assets/slideshow/e1-1.mp4",
   "/assets/slideshow/E2.mp4",
   "/assets/slideshow/E3.mp4",
   "/assets/slideshow/E4.mp4",
@@ -31,8 +32,8 @@ export default function Slideshow() {
           src={videos[currentVideo]}
           autoPlay
           muted
-          playsInline
           loop
+          playsInline
           className="absolute inset-0 w-full h-full object-cover"
           initial={{ opacity: 0 }}
 animate={{ opacity: 1 }}

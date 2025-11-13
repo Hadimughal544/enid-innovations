@@ -7,7 +7,7 @@ export default function Floatingbutton() {
       <Link 
         href="https://wa.me/+923280098148" // Replace with your actual number in international format
         aria-label="Chat on WhatsApp"
-        className="fixed bottom-6 right-6 bg-green-600 text-white p-4 rounded-full shadow-lg z-50 transition duration-300"
+        className="fixed bottom-6 right-6 bg-[#0b6a6b] text-white p-4 rounded-full shadow-lg z-50 transition duration-300"
         target="_blank"
         rel="noopener noreferrer"
       >
