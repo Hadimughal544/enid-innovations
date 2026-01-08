@@ -9,18 +9,43 @@ export default function Home() {
   const router = useRouter();
   const hoverSound = useRef(null);
   const bgMusic = useRef(null);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
 
-  // Load saved mute state from localStorage
+  // Load saved mute state from localStorage and attempt autoplay
   useEffect(() => {
-    // Ensure it's muted at start
-    if (bgMusic.current) {
-      bgMusic.current.muted = true;
-      bgMusic.current.volume = 0.6; // optional
-      bgMusic.current.play().catch(() => {
-        // ignore autoplay restriction
-      });
-    }
+    const savedMute = localStorage.getItem("bg-muted");
+    // If no preference is saved, default to UNMUTED (false)
+    const muted = savedMute === "true";
+    setIsMuted(muted);
+
+    const startPlayback = () => {
+      if (bgMusic.current) {
+        bgMusic.current.muted = muted;
+        bgMusic.current.volume = 0.6;
+        bgMusic.current.play().catch((err) => {
+          console.log("Autoplay prevented, waiting for interaction", err);
+        });
+      }
+    };
+
+    startPlayback();
+
+    // Fallback: Start playback on first user interaction if it was blocked
+    const handleFirstInteraction = () => {
+      if (bgMusic.current && bgMusic.current.paused && !muted) {
+        bgMusic.current.play().catch(err => console.log("Playback failed on interaction:", err));
+      }
+      window.removeEventListener("click", handleFirstInteraction);
+      window.removeEventListener("touchstart", handleFirstInteraction);
+    };
+
+    window.addEventListener("click", handleFirstInteraction);
+    window.addEventListener("touchstart", handleFirstInteraction);
+
+    return () => {
+      window.removeEventListener("click", handleFirstInteraction);
+      window.removeEventListener("touchstart", handleFirstInteraction);
+    };
   }, []);
 
   // Play hover sound
@@ -50,12 +75,12 @@ export default function Home() {
   };
 
   return (
-      <div
+    <div
       className="relative h-screen w-full flex flex-col md:flex-row overflow-hidden bg-center bg-no-repeat bg-cover"
       style={{
         cursor: "url('/assets/cursor1-1.cur'), auto",
       }}
-      
+
     >
       {/* Background Music */}
       <audio ref={bgMusic} loop>
@@ -83,7 +108,7 @@ export default function Home() {
         style={{ cursor: "url('/assets/cursor1-1.cur'), auto" }}
       >
         <Image
-          src="/assets/E1.jpg"
+          src="/assets/B1.jpg"
           alt="Enid Innovations background"
           fill
           className="object-cover brightness-75 group-hover:brightness-90 transition-all duration-700"
@@ -107,7 +132,7 @@ export default function Home() {
         style={{ cursor: "url('/assets/cursor1-1.cur'), auto" }}
       >
         <Image
-          src="/assets/E2.jpg"
+          src="/assets/B2.jpg"
           alt="Enid Studio background"
           fill
           className="object-cover brightness-75 group-hover:brightness-90 transition-all duration-700"
@@ -130,8 +155,8 @@ export default function Home() {
         title={isMuted ? "Unmute" : "Mute"}
       >
         {isMuted ? <FaVolumeMute size={20} /> : <FaVolumeUp size={20} />}
-      </button> 
-      
+      </button>
+
 
       {/* CSS Styles */}
       <style jsx>{`
@@ -206,7 +231,7 @@ export default function Home() {
           }
         }
       `}</style>
-      
+
     </div>
   );
 }

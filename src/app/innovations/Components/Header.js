@@ -145,6 +145,7 @@ export default function Header() {
                 { name: "App Development", path: "/innovations/app-development" },
                 { name: "Digital Marketing", path: "/innovations/digital-marketing" },
                 { name: "Graphic Designing", path: "/innovations/graphic-designing" },
+                { name: "AI Automation", path: "/innovations/ai-automation" },
               ].map((item) => (
                 <li key={item.name}>
                   <Link href={item.path} className="block px-4 py-2 hover:bg-[#b5d2d2]">
@@ -218,6 +219,7 @@ export default function Header() {
               "App Development",
               "Digital Marketing",
               "Graphic Designing",
+              "AI Automation",
             ].map((service, idx) => (
               <li key={idx}>
                 <Link

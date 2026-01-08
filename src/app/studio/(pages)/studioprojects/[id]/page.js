@@ -14,7 +14,7 @@ export default function StudioProjectDetail() {
   const [direction, setDirection] = useState(0);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/studioprojects/${id}`)
+    fetch(`https://enid.pk/api/studioprojects/${id}`)
       .then((res) => res.json())
       .then((data) => setProject(data))
       .catch((err) => console.error("Error fetching project:", err));

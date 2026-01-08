@@ -15,18 +15,18 @@ export default function Header() {
     <header className="fixed hidden md:hidden lg:block top-8 left-0 w-full z-50">
       {/* Header Container */}
       <div className="max-w-7xl mx-auto bg-[#e6e7e8]/55 backdrop-blur-2xl shadow-sm rounded-2xl px-10 py-6 flex items-center justify-between ">
-        
+
         {/* Logo / Brand */}
         <div
           onClick={() => router.push("/studio")}
           className="text-2xl font-bold cursor-pointer flex items-center space-x-1"
         >
-            <Image
+          <Image
             src={"/assets/studio/Enid-Studio.png"}
             alt="mainlogo"
             width={140}
             height={30}
-            />
+          />
         </div>
 
         {/* Desktop Links */}
@@ -35,35 +35,35 @@ export default function Header() {
             href="/"
             className="text-black flex justify-center hover:text-[#C00021] font-medium transition-colors"
           >
-           <LuUndo2 size={25}/>
+            <LuUndo2 size={25} />
           </Link>
-          <div
-            onClick={() => router.push("/innovations")}
+          <Link
+            href="/innovations"
             className="cursor-pointer text-black hover:text-[#00A86B] font-bold text-lg transition-colors"
-          >Innnovations
-          </div>
+          >Innovations
+          </Link>
 
-          <div
-            onClick={() => router.push("/studio/portfolio")}
+          <Link
+            href="/studio/portfolio"
             className="cursor-pointer text-black hover:text-[#C00021] font-bold text-lg transition-colors"
           >Portfolio
-          </div>
-          
-          <div
-            onClick={() => router.push("/studio/about")}
+          </Link>
+
+          <Link
+            href="/studio/about"
             className="cursor-pointer text-black hover:text-[#C00021] font-bold text-lg transition-colors"
           >
             About
-          </div>
-          <div
-            onClick={() => router.push("/studio/contact")}
+          </Link>
+          <Link
+            href="/studio/contact"
             className="cursor-pointer text-black hover:text-[#C00021] font-bold text-lg transition-colors"
           >
             Contact
-          </div>
+          </Link>
         </div>
 
-     
+
       </div>
 
     </header>

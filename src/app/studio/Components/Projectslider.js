@@ -29,7 +29,7 @@ export default function Projectsslider() {
           </h2>
 
           <div className="flex justify-center items-center h-10">
-           <motion.div
+            <motion.div
               initial={{ width: "0%" }}
               animate={{ width: "80%" }}
               transition={{
@@ -66,7 +66,7 @@ export default function Projectsslider() {
             projects.map((project) => (
               <SwiperSlide key={project.id}>
                 <Link
-                  href={`/Studio/studioprojects/${project.id}`}
+                  href={`/studio/studioprojects/${project.id}`}
                   className="relative group rounded-xl overflow-hidden shadow-lg bg-white hover:shadow-2xl transition-all duration-300 block"
                 >
                   {/* Image */}

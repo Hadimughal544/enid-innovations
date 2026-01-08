@@ -70,7 +70,7 @@ export default function Innovations() {
             image="/assets/services/graphic.jpg"
           />
           <ServiceLink
-            href="/innovations/graphic-designing"
+            href="/innovations/ai-automation"
             title="AI Automation"
             desc="From backend logic to bots, our automations make your systems smarter and faster."
             Icon={FaRobot}
@@ -97,23 +97,23 @@ function ServiceLink({ href, title, desc, Icon, image }) {
 
         {/* Bottom Overlay (half visible by default) */}
         <div
-  className="absolute bottom-[-53%] sm:bottom-[-37%] left-0 w-full bg-[#C00021] group-hover:bg-white/93 
+          className="absolute bottom-[-53%] sm:bottom-[-37%] left-0 w-full bg-[#C00021] group-hover:bg-white/93 
     rounded-l-3xl shadow-md p-5 pt-2 flex flex-col items-center justify-center 
     transition-all duration-700 ease-in-out group-hover:bottom-0 group-hover:rounded-none"
->
-  <div className="flex flex-col items-center justify-center transition-all duration-500 group-hover:flex-col-reverse">
-    <h3 className="text-white group-hover:text-black font-semibold text-lg sm:text-xl mb-1 sm:mb-2 text-center">
-      {title}
-    </h3>
-    <div className="w-16 h-16 rounded-full flex items-center justify-center border border-gray-300 mb-3 text-2xl text-[#0b6a6b]">
-      <Icon />
-    </div>
-  </div>
+        >
+          <div className="flex flex-col items-center justify-center transition-all duration-500 group-hover:flex-col-reverse">
+            <h3 className="text-white group-hover:text-black font-semibold text-lg sm:text-xl mb-1 sm:mb-2 text-center">
+              {title}
+            </h3>
+            <div className="w-16 h-16 rounded-full flex items-center justify-center border border-gray-300 mb-3 text-2xl text-[#0b6a6b]">
+              <Icon />
+            </div>
+          </div>
 
-  <p className="text-gray-600 text-sm sm:text-base text-center leading-snug opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-    {desc}
-  </p>
-</div>
+          <p className="text-gray-600 text-sm sm:text-base text-center leading-snug opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+            {desc}
+          </p>
+        </div>
 
       </div>
     </Link>

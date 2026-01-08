@@ -38,43 +38,34 @@ export default function MobileHeader() {
       {menuOpen && (
         <div className="bg-white shadow-lg border-t border-gray-100">
           <nav className="flex flex-col px-6 py-4 space-y-3">
-             <button
-              onClick={() => {
-                router.push("/innovations");
-                setMenuOpen(false);
-              }}
+            <Link
+              href="/innovations"
               className="text-left text-gray-700 text-lg hover:text-[#00A86B] font-medium"
+              onClick={() => setMenuOpen(false)}
             >
               Innovations
-            </button>
-            <button
-              onClick={() => {
-                router.push("/Studio/portfolio");
-                setMenuOpen(false);
-              }}
+            </Link>
+            <Link
+              href="/studio/portfolio"
               className="text-left text-gray-700 text-lg hover:text-[#00A86B] font-medium"
+              onClick={() => setMenuOpen(false)}
             >
               Portfolio
-            </button>
-            <button
-              onClick={() => {
-                router.push("/studio/about");
-                setMenuOpen(false);
-              }}
+            </Link>
+            <Link
+              href="/studio/about"
               className="text-left text-gray-700 text-lg hover:text-[#C00021] font-medium"
+              onClick={() => setMenuOpen(false)}
             >
               About
-            </button>
-            <button
-              onClick={() => {
-                router.push("/studio/contact");
-                setMenuOpen(false);
-              }}
+            </Link>
+            <Link
+              href="/studio/contact"
               className="text-left text-gray-700 text-lg hover:text-[#00A86B] font-medium"
+              onClick={() => setMenuOpen(false)}
             >
               Contact
-            </button>
-           
+            </Link>
           </nav>
         </div>
       )}
