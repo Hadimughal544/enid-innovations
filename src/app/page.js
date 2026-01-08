@@ -108,7 +108,7 @@ export default function Home() {
         style={{ cursor: "url('/assets/cursor1-1.cur'), auto" }}
       >
         <Image
-          src="/assets/B1.jpg"
+          src="/assets/E1.jpg"
           alt="Enid Innovations background"
           fill
           className="object-cover brightness-75 group-hover:brightness-90 transition-all duration-700"
@@ -132,7 +132,7 @@ export default function Home() {
         style={{ cursor: "url('/assets/cursor1-1.cur'), auto" }}
       >
         <Image
-          src="/assets/B2.jpg"
+          src="/assets/E2.jpg"
           alt="Enid Studio background"
           fill
           className="object-cover brightness-75 group-hover:brightness-90 transition-all duration-700"

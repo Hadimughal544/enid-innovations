@@ -18,7 +18,7 @@ export default function Footer() {
           {/* Column 1 - Logo */}
           <div className="flex flex-col items-start justify-center md:items-start">
             <Image
-              src="/assets/LogoEnid-white.png"
+              src="/assets/services/enid-footer.png"
               alt="Enid Innovations Logo"
               width={140}
               height={70}
