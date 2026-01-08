@@ -152,7 +152,7 @@ export default function AIAutomation() {
                     <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 p-6 border-t-4 border-[#0b6a6b]">
                         <h3 className="text-xl font-semibold text-gray-900 mb-3">End-to-End Support</h3>
                         <p className="text-gray-700 leading-relaxed">
-                            From initial consultation to deployment and ongoing maintenance, we're with you every step of the way.
+                            From initial consultation to deployment and ongoing maintenance, we&apos;re with you every step of the way.
                         </p>
                     </div>
                 </div>

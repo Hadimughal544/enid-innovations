@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 import Image from "next/image";
 
 export default function MobileHeader() {
