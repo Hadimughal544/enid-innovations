@@ -85,7 +85,26 @@ export default function Portfolio() {
                   </div>
 
                   {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-300 p-4">
+                  <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center transition-all duration-300 p-4">
+                    {project.title && (
+                      <div className="mb-2">
+                        {isValidUrl(project.title) ? (
+                          <a
+                            href={project.title}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-white text-lg sm:text-xl font-bold hover:underline text-center break-words"
+                          >
+                            Visit Site
+                          </a>
+                        ) : (
+                          <h3 className="text-white text-lg sm:text-xl font-bold text-center">
+                            {project.title}
+                          </h3>
+                        )}
+                      </div>
+                    )}
+
                     {isValidUrl(project.description) ? (
                       <a
                         href={project.description}
@@ -93,7 +112,7 @@ export default function Portfolio() {
                         rel="noopener noreferrer"
                         className="text-white text-sm sm:text-base font-medium hover:underline text-center break-words"
                       >
-                        Visit Site
+                        {project.description}
                       </a>
                     ) : (
                       <p className="text-white text-xs sm:text-sm md:text-base text-center leading-snug">
