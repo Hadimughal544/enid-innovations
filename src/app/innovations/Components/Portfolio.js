@@ -73,54 +73,45 @@ export default function Portfolio() {
           {projects.length > 0 ? (
             projects.map((project) => (
               <SwiperSlide key={project.id}>
-                <div className="relative group rounded-xl overflow-hidden shadow-lg bg-white hover:shadow-2xl transition-all duration-300">
-                  {/* Image */}
-                  <div className="relative w-full h-56 sm:h-64 md:h-72 lg:h-65">
-                    <Image
-                      src={`https://enid.pk/api/uploads/${project.image}`}
-                      alt="Project"
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
+                {isValidUrl(project.title) ? (
+                  <a
+                    href={project.title}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative block group rounded-xl overflow-hidden shadow-lg bg-white hover:shadow-2xl transition-all duration-300 h-full"
+                  >
+                    {/* Image */}
+                    <div className="relative w-full h-56 sm:h-64 md:h-72 lg:h-65">
+                      <Image
+                        src={`https://enid.pk/api/uploads/${project.image}`}
+                        alt="Project"
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                  </a>
+                ) : (
+                  <div className="relative group rounded-xl overflow-hidden shadow-lg bg-white hover:shadow-2xl transition-all duration-300 h-full">
+                    {/* Image */}
+                    <div className="relative w-full h-56 sm:h-64 md:h-72 lg:h-65">
+                      <Image
+                        src={`https://enid.pk/api/uploads/${project.image}`}
+                        alt={project.title || "Project"}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
 
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center transition-all duration-300 p-4">
-                    {project.title && (
-                      <div className="mb-2">
-                        {isValidUrl(project.title) ? (
-                          <a
-                            href={project.title}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-white text-lg sm:text-xl font-bold hover:underline text-center break-words"
-                          >
-                            Visit Site
-                          </a>
-                        ) : (
-                          <h3 className="text-white text-lg sm:text-xl font-bold text-center">
-                            {project.title}
-                          </h3>
-                        )}
-                      </div>
-                    )}
-
-                    {isValidUrl(project.description) ? (
-                      <a
-                        href={project.description}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white text-sm sm:text-base font-medium hover:underline text-center break-words"
-                      >
-                        {project.description}
-                      </a>
-                    ) : (
-                      <p className="text-white text-xs sm:text-sm md:text-base text-center leading-snug">
-                        {project.description}
-                      </p>
-                    )}
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center transition-all duration-300 p-4">
+                      {project.title && (
+                        <h3 className="text-white text-lg sm:text-xl font-bold text-center">
+                          {project.title}
+                        </h3>
+                      )}
+                    </div>
                   </div>
-                </div>
+                )}
               </SwiperSlide>
             ))
           ) : (
