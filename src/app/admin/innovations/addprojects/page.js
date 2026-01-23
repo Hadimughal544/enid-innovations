@@ -16,6 +16,20 @@ export default function AdminPanel() {
       return;
     }
 
+    // Client-side validation
+    if (title.length > 100) {
+      setMessage("Title must be less than 100 characters.");
+      return;
+    }
+    if (description.length > 2000) {
+      setMessage("Description must be less than 2000 characters.");
+      return;
+    }
+    if (image.size > 5 * 1024 * 1024) {
+      setMessage("Image size must be less than 5MB.");
+      return;
+    }
+
     const formData = new FormData();
     formData.append("title", title);
     formData.append("description", description);
@@ -25,12 +39,16 @@ export default function AdminPanel() {
       setLoading(true);
       setMessage("");
 
-      const res = await fetch("https://enid.pk/api/projects", {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://enid.pk/api";
+      const res = await fetch(`${apiUrl}/projects`, {
         method: "POST",
         body: formData,
       });
 
-      if (!res.ok) throw new Error("Upload failed");
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.message || "Upload failed");
+      }
 
       const data = await res.json();
       console.log("Response:", data);
@@ -41,7 +59,7 @@ export default function AdminPanel() {
       setImage(null);
     } catch (error) {
       console.error(error);
-      setMessage("Error uploading project. Check the console.");
+      setMessage(`Error: ${error.message}`);
     } finally {
       setLoading(false);
     }
