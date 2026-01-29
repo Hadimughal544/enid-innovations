@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import ProtectedRoute from "../../Components/Protectedroute";
 
 export default function AdminPanel() {
-  const [description, setDescription] = useState("");
   const [title, setTitle] = useState("");
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -11,7 +10,7 @@ export default function AdminPanel() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!image || !description || !title) {
+    if (!image || !title) {
       setMessage("Please fill out all fields.");
       return;
     }
@@ -21,10 +20,6 @@ export default function AdminPanel() {
       setMessage("Title must be less than 100 characters.");
       return;
     }
-    if (description.length > 2000) {
-      setMessage("Description must be less than 2000 characters.");
-      return;
-    }
     if (image.size > 5 * 1024 * 1024) {
       setMessage("Image size must be less than 5MB.");
       return;
@@ -32,7 +27,6 @@ export default function AdminPanel() {
 
     const formData = new FormData();
     formData.append("title", title);
-    formData.append("description", description);
     formData.append("image", image);
 
     try {
@@ -55,7 +49,6 @@ export default function AdminPanel() {
 
       setMessage("Project uploaded successfully!");
       setTitle("");
-      setDescription("");
       setImage(null);
     } catch (error) {
       console.error(error);
@@ -80,14 +73,6 @@ export default function AdminPanel() {
               onChange={(e) => setTitle(e.target.value)}
               placeholder="Enter project title / URL..."
               className="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
-            />
-
-            <textarea
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              placeholder="Enter project description..."
-              className="border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
-              rows={4}
             />
 
             <input

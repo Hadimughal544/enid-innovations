@@ -19,12 +19,22 @@ export default function Portfolio() {
   }, []);
 
   const isValidUrl = (str) => {
+    if (!str) return false;
     try {
       const url = new URL(str);
       return url.protocol === "http:" || url.protocol === "https:";
     } catch {
-      return false;
+      // Check for common patterns like www.google.com
+      const pattern = /^(www\.|https?:\/\/)/i;
+      return pattern.test(str);
     }
+  };
+
+  const formatUrl = (str) => {
+    if (!str.startsWith('http')) {
+      return `https://${str}`;
+    }
+    return str;
   };
 
   return (
@@ -75,7 +85,7 @@ export default function Portfolio() {
               <SwiperSlide key={project.id}>
                 {isValidUrl(project.title) ? (
                   <a
-                    href={project.title}
+                    href={formatUrl(project.title)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="relative block group rounded-xl overflow-hidden shadow-lg bg-white hover:shadow-2xl transition-all duration-300 h-full"
