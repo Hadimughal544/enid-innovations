@@ -10,11 +10,15 @@ import "swiper/css/pagination";
 
 export default function Portfolio() {
   const [projects, setProjects] = useState([]);
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://enid.pk/api";
 
   useEffect(() => {
-    fetch("https://enid.pk/api/projects")
+    fetch(`${apiUrl}/projects`)
       .then((res) => res.json())
-      .then((data) => setProjects(data))
+      .then((data) => {
+        console.log("Fetched projects:", data);
+        setProjects(data);
+      })
       .catch((err) => console.error("Error fetching projects:", err));
   }, []);
 
@@ -93,7 +97,7 @@ export default function Portfolio() {
                     {/* Image */}
                     <div className="relative w-full h-56 sm:h-64 md:h-72 lg:h-65">
                       <Image
-                        src={`https://enid.pk/api/uploads/${project.image}`}
+                        src={`${apiUrl}/uploads/${project.image}`}
                         alt="Project"
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -112,7 +116,7 @@ export default function Portfolio() {
                     {/* Image */}
                     <div className="relative w-full h-56 sm:h-64 md:h-72 lg:h-65">
                       <Image
-                        src={`https://enid.pk/api/uploads/${project.image}`}
+                        src={`${apiUrl}/uploads/${project.image}`}
                         alt={project.title || "Project"}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
