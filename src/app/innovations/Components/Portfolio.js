@@ -99,6 +99,13 @@ export default function Portfolio() {
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>
+
+                    {/* Hover overlay for links */}
+                    <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center transition-all duration-300 p-4">
+                      <h3 className="text-white text-lg sm:text-xl font-bold text-center">
+                        Click Now
+                      </h3>
+                    </div>
                   </a>
                 ) : (
                   <div className="relative group rounded-xl overflow-hidden shadow-lg bg-white hover:shadow-2xl transition-all duration-300 h-full">
@@ -112,7 +119,7 @@ export default function Portfolio() {
                       />
                     </div>
 
-                    {/* Hover overlay */}
+                    {/* Hover overlay for text titles */}
                     <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center transition-all duration-300 p-4">
                       {project.title && (
                         <h3 className="text-white text-lg sm:text-xl font-bold text-center">
