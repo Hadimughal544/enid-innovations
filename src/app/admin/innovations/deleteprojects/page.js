@@ -8,6 +8,8 @@ export default function AdminProjectsPage() {
   const [loading, setLoading] = useState(true);
   const [deletingId, setDeletingId] = useState(null);
 
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://enid.pk/api";
+
   // Fetch all projects
   useEffect(() => {
     fetchProjects();
@@ -16,8 +18,9 @@ export default function AdminProjectsPage() {
   const fetchProjects = async () => {
     try {
       setLoading(true);
-      const res = await fetch("https://enid.pk/api/projects");
+      const res = await fetch(`${apiUrl}/projects`);
       const data = await res.json();
+      console.log("Admin fetched projects:", data);
       setProjects(data);
     } catch (err) {
       console.error("Error fetching projects:", err);
@@ -31,7 +34,7 @@ export default function AdminProjectsPage() {
     if (!confirm("Are you sure you want to delete this project?")) return;
     setDeletingId(id);
     try {
-      const res = await fetch(`https://enid.pk/api/projects/${id}`, {
+      const res = await fetch(`${apiUrl}/projects/${id}`, {
         method: "DELETE",
       });
 
@@ -68,7 +71,7 @@ export default function AdminProjectsPage() {
                 >
                   <div className="flex items-center gap-4">
                     <Image
-                      src={`https://enid.pk/api/uploads/${project.image}`}
+                      src={`${apiUrl}/uploads/${project.image}`}
                       alt={project.description || "Project image"}
                       width={160}
                       height={80}
@@ -88,8 +91,8 @@ export default function AdminProjectsPage() {
                     onClick={() => handleDelete(project.id)}
                     disabled={deletingId === project.id}
                     className={`px-4 py-2 rounded-md text-white transition ${deletingId === project.id
-                        ? "bg-gray-400 cursor-not-allowed"
-                        : "bg-red-600 hover:bg-red-700"
+                      ? "bg-gray-400 cursor-not-allowed"
+                      : "bg-red-600 hover:bg-red-700"
                       }`}
                   >
                     {deletingId === project.id ? "Deleting..." : "Delete"}
