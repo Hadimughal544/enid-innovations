@@ -43,6 +43,7 @@ export default function AdminPanel() {
         const errorData = await res.json();
         throw new Error(errorData.message || "Upload failed");
       }
+      console.log(title);
 
       const data = await res.json();
       console.log("Response:", data);
