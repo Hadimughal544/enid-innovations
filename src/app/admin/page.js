@@ -1,56 +1,213 @@
 "use client";
 
-import Link from "next/link";
+import Sidebar from "./Components/Sidebar";
 import ProtectedRoute from "./Components/Protectedroute";
+import { useState, useEffect } from "react";
+import { FiLayers, FiMonitor, FiTrendingUp, FiPackage } from "react-icons/fi";
 
+export default function AdminDashboard() {
+  const [innovationProjects, setInnovationProjects] = useState([]);
+  const [studioProjects, setStudioProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-export default function Home() {
-  function handleLogout() {
-    localStorage.removeItem("token");
-    window.location.href = "/admin/login";
-  }
+  useEffect(() => {
+    fetchProjects();
+  }, []);
+
+  const fetchProjects = async () => {
+    try {
+      setLoading(true);
+
+      // Fetch Innovation Projects
+      const innovationRes = await fetch("http://localhost:3001/projects");
+      const innovationData = await innovationRes.json();
+      setInnovationProjects(innovationData);
+
+      // Fetch Studio Projects
+      const studioRes = await fetch("http://localhost:3001/studioprojects");
+      const studioData = await studioRes.json();
+      setStudioProjects(studioData);
+    } catch (error) {
+      console.error("Error fetching projects:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const stats = [
+    {
+      title: "Innovation Projects",
+      value: innovationProjects.length,
+      icon: FiLayers,
+      color: "from-teal-500 to-teal-600",
+      bgColor: "bg-teal-50",
+      textColor: "text-teal-600",
+    },
+    {
+      title: "Studio Projects",
+      value: studioProjects.length,
+      icon: FiMonitor,
+      color: "from-gray-700 to-gray-900",
+      bgColor: "bg-gray-50",
+      textColor: "text-gray-700",
+    },
+    {
+      title: "Total Projects",
+      value: innovationProjects.length + studioProjects.length,
+      icon: FiPackage,
+      color: "from-purple-500 to-purple-600",
+      bgColor: "bg-purple-50",
+      textColor: "text-purple-600",
+    },
+  ];
 
   return (
     <ProtectedRoute>
-      <div className="relative min-h-screen flex flex-col items-center gap-20 py-40 bg-gray-100 px-4">
-        {/* Top right buttons */}
-        <div className="absolute top-6 right-6 flex flex-col sm:flex-row gap-3">
-          <Link href="/admin/addadmin">
-            <button className="px-4 py-2 bg-black text-white font-semibold rounded-lg shadow hover:bg-blue-600 transition text-sm sm:text-base">
-              Add Admin
-            </button>
-          </Link>
-          <button
-            onClick={handleLogout}
-            className="px-4 py-2 bg-black text-white font-semibold rounded-lg shadow hover:bg-red-600 transition text-sm sm:text-base"
-          >
-            Log out
-          </button>
-        </div>
+      <div className="flex min-h-screen bg-gray-50">
+        <Sidebar />
 
-        {/* Page heading */}
-        <h1 className="text-5xl font-extrabold text-gray-900">Admin Panel</h1>
+        {/* Main Content */}
+        <main className="flex-1 lg:ml-64 p-4 lg:p-8">
+          {/* Header */}
+          <div className="mb-8">
+            <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+              Dashboard Overview
+            </h1>
+            <p className="text-gray-600">
+              Manage your innovation and studio projects
+            </p>
+          </div>
 
-        {/* Navigation grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-4xl">
-          {/* Innovation Box */}
-          <Link
-            href="/admin/innovations"
-            className="relative flex items-center justify-center h-60 rounded-xl bg-[#0b6a6b] text-white overflow-hidden group shadow-lg transition-transform transform hover:scale-105"
-          >
-            <span className="text-4xl font-bold z-10">Innovation</span>
-            <div className="absolute inset-0 bg-black opacity-10 group-hover:opacity-20 transition-opacity"></div>
-          </Link>
+          {/* Stats Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {stats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-100"
+                >
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm font-medium text-gray-600 mb-1">
+                        {stat.title}
+                      </p>
+                      <p className="text-3xl font-bold text-gray-900">
+                        {loading ? "..." : stat.value}
+                      </p>
+                    </div>
+                    <div className={`p-4 rounded-lg ${stat.bgColor}`}>
+                      <Icon className={`${stat.textColor}`} size={28} />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
 
-          {/* Studio Box */}
-          <Link
-            href="/admin/studio"
-            className="relative flex items-center justify-center h-60 rounded-xl bg-black text-white overflow-hidden group shadow-lg transition-transform transform hover:scale-105"
-          >
-            <span className="text-4xl font-bold z-10">Studio</span>
-            <div className="absolute inset-0 bg-white opacity-10 group-hover:opacity-20 transition-opacity"></div>
-          </Link>
-        </div>
+          {/* Projects Section */}
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+            {/* Innovation Projects */}
+            <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
+                  <FiLayers className="text-teal-600" />
+                  Innovation Projects
+                </h2>
+                <span className="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm font-semibold">
+                  {innovationProjects.length}
+                </span>
+              </div>
+
+              <div className="space-y-3 max-h-96 overflow-y-auto">
+                {loading ? (
+                  <div className="text-center py-8 text-gray-500">
+                    Loading projects...
+                  </div>
+                ) : innovationProjects.length === 0 ? (
+                  <div className="text-center py-8 text-gray-500">
+                    No innovation projects yet
+                  </div>
+                ) : (
+                  innovationProjects.map((project) => (
+                    <div
+                      key={project.id}
+                      className="p-4 bg-gradient-to-r from-teal-50 to-white rounded-lg border border-teal-100 hover:shadow-md transition-shadow duration-200"
+                    >
+                      <div className="flex items-start gap-4">
+                        {project.image && (
+                          <img
+                            src={`http://localhost:3001/uploads/${project.image}`}
+                            alt={project.title || "Project"}
+                            className="w-16 h-16 rounded-lg object-cover"
+                          />
+                        )}
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-semibold text-gray-900 truncate">
+                            {project.title || "Untitled Project"}
+                          </h3>
+                          <p className="text-sm text-gray-600 line-clamp-2 mt-1">
+                            {project.description || "No description"}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
+            </div>
+
+            {/* Studio Projects */}
+            <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
+                  <FiMonitor className="text-gray-700" />
+                  Studio Projects
+                </h2>
+                <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-semibold">
+                  {studioProjects.length}
+                </span>
+              </div>
+
+              <div className="space-y-3 max-h-96 overflow-y-auto">
+                {loading ? (
+                  <div className="text-center py-8 text-gray-500">
+                    Loading projects...
+                  </div>
+                ) : studioProjects.length === 0 ? (
+                  <div className="text-center py-8 text-gray-500">
+                    No studio projects yet
+                  </div>
+                ) : (
+                  studioProjects.map((project) => (
+                    <div
+                      key={project.id}
+                      className="p-4 bg-gradient-to-r from-gray-50 to-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow duration-200"
+                    >
+                      <div className="flex items-start gap-4">
+                        {project.headerImage && (
+                          <img
+                            src={`http://localhost:3001/uploads/${project.headerImage}`}
+                            alt={project.title || "Project"}
+                            className="w-16 h-16 rounded-lg object-cover"
+                          />
+                        )}
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-semibold text-gray-900 truncate">
+                            {project.title || "Untitled Project"}
+                          </h3>
+                          <p className="text-sm text-gray-600 line-clamp-2 mt-1">
+                            {project.description || "No description"}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
+            </div>
+          </div>
+        </main>
       </div>
     </ProtectedRoute>
   );
