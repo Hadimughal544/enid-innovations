@@ -10,6 +10,8 @@ export default function AdminDashboard() {
   const [studioProjects, setStudioProjects] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://enid.pk/api";
+
   useEffect(() => {
     fetchProjects();
   }, []);
@@ -19,12 +21,12 @@ export default function AdminDashboard() {
       setLoading(true);
 
       // Fetch Innovation Projects
-      const innovationRes = await fetch("http://localhost:3001/projects");
+      const innovationRes = await fetch(`${apiUrl}/projects`);
       const innovationData = await innovationRes.json();
       setInnovationProjects(innovationData);
 
       // Fetch Studio Projects
-      const studioRes = await fetch("http://localhost:3001/studioprojects");
+      const studioRes = await fetch(`${apiUrl}/studioprojects`);
       const studioData = await studioRes.json();
       setStudioProjects(studioData);
     } catch (error) {
@@ -137,7 +139,7 @@ export default function AdminDashboard() {
                       <div className="flex items-start gap-4">
                         {project.image && (
                           <img
-                            src={`http://localhost:3001/uploads/${project.image}`}
+                            src={`${apiUrl}/uploads/${project.image}`}
                             alt={project.title || "Project"}
                             className="w-16 h-16 rounded-lg object-cover"
                           />
@@ -187,7 +189,7 @@ export default function AdminDashboard() {
                       <div className="flex items-start gap-4">
                         {project.headerImage && (
                           <img
-                            src={`http://localhost:3001/uploads/${project.headerImage}`}
+                            src={`${apiUrl}/uploads/${project.headerImage}`}
                             alt={project.title || "Project"}
                             className="w-16 h-16 rounded-lg object-cover"
                           />
